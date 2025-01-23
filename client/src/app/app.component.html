@@ -1,0 +1,18 @@
+
+<div class="header"></div>
+<div class="c-container">
+  <div class="c-navbar">
+    <a [ngClass]="{'active': view === '' }"
+     routerLink="/" (click)="onActiveView('')">Thông Tin</a>
+    <a [ngClass]="{'active': view === 'predict' }"
+     routerLink="/predict" (click)="onActiveView('predict')">Dự Đoán</a>
+    <a [ngClass]="{'active': view === 'result' }"
+     routerLink="/result" (click)="onActiveView('result')">Kết Quả</a>
+    <a [ngClass]="{'active': view === 'statistic' }"
+     routerLink="/statistic" (click)="onActiveView('statistic')">Thống Kê</a>
+  </div>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+

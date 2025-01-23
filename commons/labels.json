@@ -1,0 +1,13 @@
+[
+    "BENIGN",
+    "DNS",
+    "LDAP",
+    "MSSQL",
+    "NTP",
+    "NetBIOS",
+    "SNMP",
+    "SSDP",
+    "Syn",
+    "UDP",
+    "UDP-lag"
+]

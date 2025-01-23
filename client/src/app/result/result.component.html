@@ -1,0 +1,69 @@
+<div class="c-container">
+    <div class="header" style="justify-content: space-between;">
+        <div class="header">
+            <div class="input-group left">
+                <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                    placeholder="tìm kiếm theo đặc trưng..." [(ngModel)]="featureValue">
+                <div class="input-group-append">
+                    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">Đặc trưng</button>
+                    <div class="dropdown-menu c-drop-menu">
+                        <div *ngFor="let column of columns">
+                            <div class="dropdown-item c-drop-item" (click)="chooseFeature(column)">{{ column }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown mid">
+                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Nhãn
+                </button>
+                <div class="dropdown-menu c-drop-menu" aria-labelledby="dropdownMenuButton">
+                    <div *ngFor="let label of labels">
+                        <div class="dropdown-item c-drop-item" (click)="chooseLabel(label)">{{ label }}</div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn" type="button" (click)="search()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path fill="white"
+                        d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
+                </svg>
+            </button>
+        </div>
+        <div class="pagination">
+            <svg (click)="firstPage()" 
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path fill="#000080" d="M459.5 440.6c9.5 7.9 22.8 9.7 34.1 4.4s18.4-16.6 18.4-29l0-320c0-12.4-7.2-23.7-18.4-29s-24.5-3.6-34.1 4.4L288 214.3l0 41.7 0 41.7L459.5 440.6zM256 352l0-96 0-128 0-32c0-12.4-7.2-23.7-18.4-29s-24.5-3.6-34.1 4.4l-192 160C4.2 237.5 0 246.5 0 256s4.2 18.5 11.5 24.6l192 160c9.5 7.9 22.8 9.7 34.1 4.4s18.4-16.6 18.4-29l0-64z"/></svg>
+            <svg (click)="prev()" 
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
+                <path fill="#000080" d="M9.4 278.6c-12.5-12.5-12.5-32.8 0-45.3l128-128c9.2-9.2 22.9-11.9 34.9-6.9s19.8 16.6 19.8 29.6l0 256c0 12.9-7.8 24.6-19.8 29.6s-25.7 2.2-34.9-6.9l-128-128z"/></svg>
+            <div class="page">{{page}}</div>    
+            <svg (click)="next()" 
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
+                <path fill="#000080" d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"/></svg>
+            <svg (click)="lastPage()" 
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path fill="#000080" d="M52.5 440.6c-9.5 7.9-22.8 9.7-34.1 4.4S0 428.4 0 416L0 96C0 83.6 7.2 72.3 18.4 67s24.5-3.6 34.1 4.4L224 214.3l0 41.7 0 41.7L52.5 440.6zM256 352l0-96 0-128 0-32c0-12.4 7.2-23.7 18.4-29s24.5-3.6 34.1 4.4l192 160c7.3 6.1 11.5 15.1 11.5 24.6s-4.2 18.5-11.5 24.6l-192 160c-9.5 7.9-22.8 9.7-34.1 4.4s-18.4-16.6-18.4-29l0-64z"/></svg>
+        </div>
+    </div>
+    <div class="content">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th class="scrollable-cell" *ngFor="let column of columns">{{ column }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let e of data">
+                        <td class="scrollable-cell" *ngFor="let column of columns">
+                            {{ e[column] }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

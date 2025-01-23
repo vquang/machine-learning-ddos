@@ -1,0 +1,63 @@
+
+.c-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 200px 50px 50px;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+
+.item h2 {
+    color: white;
+    background-color: #000080;
+    padding: 10px;
+    box-shadow: 5px 5px 5px #b3b3ff;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header button {
+    cursor: pointer;
+    width: 200px;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #000080;
+    background-color: transparent;
+    color: #000080;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.header button:hover {
+    background-color: #e6e6e6;
+}
+
+.active {
+    background-color: #b3b3ff !important;
+    color: white !important;
+}
+
+.chart-container {
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    max-height: 400px;
+    overflow-y: hidden;
+    box-shadow: 5px 5px 5px inset #b3b3ff;
+    padding: 10px;
+    box-sizing: border-box;
+    border-bottom: 2px solid #000080;
+}
+
+canvas {
+    min-width: 1000px;
+    height: 400px;
+}

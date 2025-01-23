@@ -1,0 +1,36 @@
+<div class="c-container">
+    <div class="item">
+        <h2>Thống Kê Theo Nhãn Phân Loại</h2>
+        <div class="chart-container">
+            <canvas #labelBar></canvas>
+        </div>
+    </div>
+
+    <div class="item">
+        <h2>Thống Kê Theo Đặc Trưng</h2>
+        <div class="header">
+            <button [ngClass]="{'active': featureState === 'Destination IP'}"
+            (click)="chooseFeature('Destination IP')" type="button">Destination IP</button>
+            <button [ngClass]="{'active': featureState === 'Source IP'}"
+            (click)="chooseFeature('Source IP')" type="button">Source IP</button>
+            <button [ngClass]="{'active': featureState === 'Destination Port'}"
+            (click)="chooseFeature('Destination Port')" type="button">Destination Port</button>
+            <button [ngClass]="{'active': featureState === 'Source Port'}"
+            (click)="chooseFeature('Source Port')" type="button">Source Port</button>
+            <button [ngClass]="{'active': featureState === 'Protocol'}"
+            (click)="chooseFeature('Protocol')" type="button">Protocol</button>
+        </div>
+        
+        <div class="chart-container">
+            <canvas #featureBar></canvas>
+        </div>
+    </div>
+
+    <div class="item">
+        <h2>Thống Kê Theo Thời Gian</h2>
+        <div class="chart-container">
+            <canvas #timestampLine></canvas>
+          </div>          
+    </div>
+   
+</div>
